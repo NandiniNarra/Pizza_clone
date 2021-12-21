@@ -103,36 +103,36 @@
             </div>
     </div>
     <script>
-        let lnameNode = $("#Address");
+        let AddressNode = $("#Address");
         let mobileNode = $("#mobile");
-        let unameNode = $("#Payment");
+        let PaymentNode = $("#Payment");
         let  tdNode7 = $("#error7");
         let  tdNode2 = $("#error2");
         let  tdNode3 = $("#error3");
         let border1 = "2px solid red";
         let border2 = "2px solid green";
         $(document).ready(function() {
-            lnameNode.blur(()=>validate2());
-            mobileNode.blur(()=>validate7());
-            unameNode.blur(()=>validate3());
+            AddressNode.blur(()=>validate1());
+            mobileNode.blur(()=>validate2());
+            PaymentNode.blur(()=>validate3());
         });
         
-function validate2() {
+function validate1() {
     tdNode2.text("");
     let regExp = new RegExp("^[A-Za-z]*$");
-    let lname = lnameNode.val();
+    let lname = AddressNode.val();
     if (lname == '') {
          tdNode2.text("this field is  required");
-       lnameNode.css('border',border1);
+       AddressNode.css('border',border1);
         return false;
     }
     else {
-       lnameNode.css('border',border2);
+        AddressNode.css('border',border2);
         return true;
     }
 
 }
-function validate7() {
+function validate2() {
     let mobile = mobileNode.val();
     let regExp=new RegExp("^[A-Za-z]*$");
     tdNode7.text("");
@@ -149,14 +149,14 @@ function validate7() {
 }
 function validate3() {
     tdNode3.text(" ");
-    let uname = unameNode.val();
+    let uname = PaymentNode.val();
     if (uname == '') {
          tdNode3.text("this field is not required");
-        unameNode.css('border',border1);
+         PaymentNode.css('border',border1);
         return false;
     }
     else {
-       unameNode.css('border',border2);
+        PaymentNode.css('border',border2);
        return true;
     }
 }
