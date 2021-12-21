@@ -109,12 +109,14 @@
         let  tdNode7 = $("#error7");
         let  tdNode2 = $("#error2");
         let  tdNode3 = $("#error3");
+        let formNode=$("#regForm");
         let border1 = "2px solid red";
         let border2 = "2px solid green";
         $(document).ready(function() {
             AddressNode.blur(()=>validate1());
             mobileNode.blur(()=>validate2());
             PaymentNode.blur(()=>validate3());
+            formNode.submit(()=>validateForm());
         });
         
 function validate1() {
@@ -138,7 +140,7 @@ function validate2() {
     tdNode7.text("");
 
     if ( mobile == '') {
-        tdNode7.text("this field is not required");
+        tdNode7.text("this field is  required");
         mobileNode.css('border',border1);
         return false;
     }
@@ -151,7 +153,7 @@ function validate3() {
     tdNode3.text(" ");
     let uname = PaymentNode.val();
     if (uname == '') {
-         tdNode3.text("this field is not required");
+         tdNode3.text("this field is  required");
          PaymentNode.css('border',border1);
         return false;
     }
@@ -159,6 +161,12 @@ function validate3() {
         PaymentNode.css('border',border2);
        return true;
     }
+}
+function validateForm(){
+    let st1=validate1();
+    let st2=validate2();
+    let st3=validate3();
+    return st1 && st2 && st3;
 }
     </script>
 
